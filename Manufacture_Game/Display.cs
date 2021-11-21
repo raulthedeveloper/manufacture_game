@@ -1,15 +1,18 @@
 ﻿using System;
 namespace Manufacture_Game
-{
+{ 
+
     public class Display
     {
+      
+
         public Display()
         {
         }
 
         public void PlayerStats()
         {
-            Console.WriteLine("Diplay players stats");
+            Console.WriteLine("Display players stats");
         }
 
         public void Greeting(string CompanyName)
@@ -19,11 +22,13 @@ namespace Manufacture_Game
 
         public void MainMenu()
         {
-            Console.WriteLine($" 1.Buy Patents \n 2.Manufacture \n 3.Find Prospects");
+            Console.WriteLine();
 
-            string choice = Console.ReadLine();
+            Console.WriteLine($"1.Buy Patents \n2.Manufacture \n3.Find Prospects\n4 View Stats [type the number]");
 
-            this.Decision(choice);
+            string Choice = Console.ReadLine();
+
+            this.Decision(Choice);
         }
 
         public void BuyPatents()
@@ -41,9 +46,36 @@ namespace Manufacture_Game
             Console.WriteLine("Its time to find some business");
         }
 
-        public void Decision(string choice)
+        public void ViewStats(int Money, int Level, int ExperiencePoints)
+        {
+            Console.WriteLine();
+            //Console.WriteLine($"Money:{Money} || Level:{Level} || Experience Point: {ExperiencePoints}");
+        }
+
+        public void Decision(string Choice)
         {
             // Manages descriptions
+            switch(Choice)
+            {
+                case "1":
+                    this.BuyPatents();
+                    break;
+                case "2":
+                    this.Manufacture();
+                    break;
+                case "3":
+                    this.FindProspects();
+                    break;
+                case "4":
+                    Console.WriteLine("This is for View States");
+                    break;
+                default:
+                    Console.WriteLine("please select a valid choide");
+                    this.MainMenu();
+                    break;
+
+            }
+
         }
     }
 }
