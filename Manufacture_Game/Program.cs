@@ -6,7 +6,13 @@ namespace Manufacture_Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Player player = new Player("Raul", 1000000, 0);
+
+            Display display = new Display();
+
+            display.Greeting(player.CompanyName);
+
+            display.MainMenu();
         }
     }
 }
