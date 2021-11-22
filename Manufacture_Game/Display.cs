@@ -1,18 +1,22 @@
 ﻿using System;
 namespace Manufacture_Game
-{ 
+{
 
     public class Display
     {
-      
 
-        public Display()
+        private Player PlayerData {get; set;}
+
+        public Display(Player player)
         {
+            PlayerData = player;
         }
 
         public void PlayerStats()
         {
-            Console.WriteLine("Display players stats");
+            Console.WriteLine($"Company Name: {PlayerData.CompanyName} \nMoney: {PlayerData.Money}");
+
+            this.MainMenu();
         }
 
         public void Greeting(string CompanyName)
@@ -33,24 +37,25 @@ namespace Manufacture_Game
 
         public void BuyPatents()
         {
-            Console.WriteLine("Welcome to buy patents");
+            DataProcessor BuyPatent = new DataProcessor(PlayerData.Money);
+            BuyPatent.BuyPatent();
+            this.PlayerStats();
+            this.MainMenu();
         }
 
         public void Manufacture()
         {
             Console.WriteLine("Welcome to buy Manufacture");
+            this.MainMenu();
         }
 
         public void FindProspects()
         {
             Console.WriteLine("Its time to find some business");
+            this.MainMenu();
         }
 
-        public void ViewStats(int Money, int Level, int ExperiencePoints)
-        {
-            Console.WriteLine();
-            //Console.WriteLine($"Money:{Money} || Level:{Level} || Experience Point: {ExperiencePoints}");
-        }
+        
 
         public void Decision(string Choice)
         {
@@ -67,7 +72,7 @@ namespace Manufacture_Game
                     this.FindProspects();
                     break;
                 case "4":
-                    Console.WriteLine("This is for View States");
+                    this.PlayerStats();
                     break;
                 default:
                     Console.WriteLine("please select a valid choide");

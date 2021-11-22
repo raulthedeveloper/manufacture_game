@@ -8,7 +8,7 @@ namespace Manufacture_Game
         {
             Player player = new Player("Raul", 1000000, 0);
 
-            Display display = new Display();
+            Display display = new Display(player);
 
             display.Greeting(player.CompanyName);
 
