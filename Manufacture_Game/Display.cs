@@ -6,15 +6,37 @@ namespace Manufacture_Game
     {
 
         private Player PlayerData {get; set;}
+        private DataStorage dataStorage { get; set; }
+        private Prospects[] ProspectList { get; set; }
 
-        public Display(Player player)
+        public Display(Player player, DataStorage data,Prospects[] prospectList)
         {
             PlayerData = player;
+            dataStorage = data;
+            ProspectList = prospectList;
+        }
+
+        public void BoxContainer(object data)
+        {
+            Console.WriteLine("+--------------+");
+
+
+
+            Console.WriteLine("+--------------+");
+
+        }
+        public void BoxContainer(string message)
+        {
+            Console.WriteLine("+--------------+");
+
+            Console.WriteLine(message); 
+
+
         }
 
         public void PlayerStats()
         {
-            Console.WriteLine($"Company Name: {PlayerData.CompanyName} \nMoney: {PlayerData.Money}");
+            this.BoxContainer($"Company Name: {PlayerData.CompanyName} \nMoney: {PlayerData.Money}");
 
             this.MainMenu();
         }
@@ -26,9 +48,8 @@ namespace Manufacture_Game
 
         public void MainMenu()
         {
-            Console.WriteLine();
 
-            Console.WriteLine($"1.Buy Patents \n2.Manufacture \n3.Find Prospects\n4 View Stats [type the number]");
+           this.BoxContainer($"1.Buy Patents \n2.Manufacture \n3.Find Prospects\n4 View Stats [type the number]");
 
             string Choice = Console.ReadLine();
 
@@ -38,6 +59,7 @@ namespace Manufacture_Game
         public void BuyPatents()
         {
             DataProcessor BuyPatent = new DataProcessor(PlayerData.Money);
+
             BuyPatent.BuyPatent();
             this.PlayerStats();
             this.MainMenu();
@@ -45,13 +67,25 @@ namespace Manufacture_Game
 
         public void Manufacture()
         {
-            Console.WriteLine("Welcome to buy Manufacture");
+            this.BoxContainer("Welcome to buy Manufacture");
             this.MainMenu();
         }
 
+
         public void FindProspects()
         {
-            Console.WriteLine("Its time to find some business");
+  
+            this.BoxContainer("Its time to find some business");
+
+            
+
+            for (int i = 1; i < ProspectList.Length; i++)
+            {
+                this.BoxContainer($"{i}.Company Name: {ProspectList[i].Name}\n  Level Requirement: {ProspectList[i].LeveleRequirement}");
+            }
+
+
+            //DataStorage.CreateProspectList();
             this.MainMenu();
         }
 

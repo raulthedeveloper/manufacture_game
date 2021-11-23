@@ -1,0 +1,24 @@
+﻿{
+  "playerData": {
+    "name": "Player",
+    "money": 0,
+    "level": 1,
+    "experiencePoints": 0
+  },
+
+  "companyNames":[
+    "Vigon",
+    "Mr.Z's",
+    "Weis",
+    "Mikes Hardware",
+    "Kailey's Catering",
+    "Walmart",
+    "Shoprite",
+    "Scott's Goods",
+    "Assurian",
+    "Ultimate Distribution"
+      
+  ]
+
+  
+}
